@@ -28,6 +28,8 @@ addBookToLibrary(dune);
 
 function displayBooks(library) {
     for (let i = 0; i < library.length; i++) {
+        let bookDiv = document.createElement("div");
+        bookDiv.classList.add("book");
 
         let title = document.createElement("h2");
         let node = document.createTextNode(library[i].title);
@@ -37,10 +39,14 @@ function displayBooks(library) {
         let authorNode = document.createTextNode(library[i].author);
         author.appendChild(authorNode);
 
+        bookDiv.appendChild(title);
+        bookDiv.appendChild(author);
+
         const libraryDiv = document.getElementById("library");
-        libraryDiv.appendChild(title);
-        libraryDiv.appendChild(author);
+        
+        libraryDiv.appendChild(bookDiv);
         
     }
 }
 
+displayBooks(myLibrary);
