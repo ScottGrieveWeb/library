@@ -27,6 +27,9 @@ addBookToLibrary(dune);
 addBookToLibrary(duneMessiah);
 addBookToLibrary(theFellowship);
 
+const libraryDiv = document.getElementById("library");
+        
+
 // Function to loop through library array and display each result
 
 function displayBooks(library) {
@@ -44,8 +47,6 @@ function displayBooks(library) {
 
         bookDiv.appendChild(title);
         bookDiv.appendChild(author);
-
-        const libraryDiv = document.getElementById("library");
         
         libraryDiv.appendChild(bookDiv);
         
@@ -53,3 +54,29 @@ function displayBooks(library) {
 }
 
 displayBooks(myLibrary);
+
+// function clear library, used to display the updated library after user adds a book
+
+function refreshLibrary() {
+    while (libraryDiv.lastElementChild) {
+        libraryDiv.removeChild(libraryDiv.lastElementChild);
+      }
+}
+
+// funcitonality for a user to add a new book to the library
+
+const bookBtn = document.getElementById('newBook');
+
+bookBtn.addEventListener('click', promptUser);
+
+
+function promptUser() {
+    let title = prompt("Enter the name of the book");
+    let author = prompt("Enter the name of the author");
+
+    const userBook = new Book(title, author);
+
+    addBookToLibrary(userBook);
+    refreshLibrary();
+    displayBooks(myLibrary);
+}
