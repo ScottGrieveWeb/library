@@ -8,8 +8,10 @@ function Book(title, author) {
 }
 
 const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien');
+const theFellowship = new Book('The Fellowship of the Ring', 'J.R.R. Tolkien');
 const theLastKingdom = new Book ('The Last Kingdom', 'Bernard Cornwell');
 const dune = new Book('Dune', 'Frank Herbert');
+const duneMessiah = new Book('Dune Messiah', 'Frank Herbert');
 
 function addBookToLibrary(newBook) {
     let book = newBook;
@@ -22,7 +24,8 @@ function addBookToLibrary(newBook) {
 addBookToLibrary(theHobbit);
 addBookToLibrary(theLastKingdom);
 addBookToLibrary(dune);
-
+addBookToLibrary(duneMessiah);
+addBookToLibrary(theFellowship);
 
 // Function to loop through library array and display each result
 

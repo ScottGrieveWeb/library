@@ -3,6 +3,7 @@ html {
     height: 100vh;
     margin: 0;
     font-family: 'Roboto', sans-serif;
+    background-color: grey;
 }
 
 header h1{
@@ -10,4 +11,19 @@ header h1{
     color:burlywood;
     margin: 30px;
     
+}
+
+#library {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: 30px;
+}
+
+.book {
+    background-color: white;
+    border-radius: 8px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
