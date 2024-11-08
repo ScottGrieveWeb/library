@@ -17,8 +17,19 @@
     <div id="library">
 
     </div>
-    
+
     <button id="newBook">New Book</button>
+
+    <dialog id="bookCreator">
+        <h2>Enter your new Book</h2>
+        <form id="bookForm" method="dialog">
+            <label for="bookTitle">Title:</label><br>
+            <input type="text" id="bookTitle" name="bookTitle"><br>
+            <label for="bookAuthor">Author:</label><br>
+            <input type="text" id="bookAuthor" name="bookAuthor"><br>
+            <input type="submit" id="submit">
+        </form>
+    </dialog>
 </body>
 <script src="script.js"></script>
 </html>

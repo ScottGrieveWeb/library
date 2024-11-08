@@ -65,18 +65,27 @@ function refreshLibrary() {
 
 // funcitonality for a user to add a new book to the library
 
+const bookCreator = document.getElementById('bookCreator');
 const bookBtn = document.getElementById('newBook');
+const submitBtn = document.getElementById('submit');
 
-bookBtn.addEventListener('click', promptUser);
 
+bookBtn.addEventListener('click', () => {
+    bookCreator.showModal();
+});
 
-function promptUser() {
-    let title = prompt("Enter the name of the book");
-    let author = prompt("Enter the name of the author");
-
-    const userBook = new Book(title, author);
+submitBtn.addEventListener('click', () => {
+    const titleInput = document.getElementById("bookTitle");
+    const titleValue = titleInput.value;
+    const authInput = document.getElementById("bookAuthor");
+    const authValue = authInput.value;
+    
+    const userBook = new Book(titleInput.value, authInput.value);
 
     addBookToLibrary(userBook);
     refreshLibrary();
     displayBooks(myLibrary);
-}
+    
+    titleInput.value = "";
+    authInput.value = "";
+});
