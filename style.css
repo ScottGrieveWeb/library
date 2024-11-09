@@ -59,13 +59,42 @@ button {
 
 #bookCreator {
     max-width: 50ch;
-    
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 15px 10px -15px #0A0908;
+    padding-top: -30px;
 }
 
 #bookCreator::backdrop {
     background: rgb(0 0 0 / .4);
 }
 
+#bookCreator h2{
+    font-weight: 900;
+    font-size: 30px;
+}
+
+#bookForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.formItem {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-bottom: 15px;;
+    font-weight: bolder;
+}
+
+#bookTitle,
+#bookAuthor {
+    border-radius: 10px;
+    border: solid 1px #22333B;
+    height: 30px;
+    width: 270px;
+    margin-top: -15px;
+}
 
 #submit {
     padding: 0;
