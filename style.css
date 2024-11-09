@@ -37,6 +37,15 @@ header h1{
     color:#C6AC8F;
 }
 
+.delete {
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.delete:hover {
+    text-decoration: underline;
+}
+
 button {
     padding: 0;
     border: none;
@@ -47,7 +56,7 @@ button {
     cursor: pointer;
 }
 
-button {
+#newBook {
     background-color: #22333B;
     color: #EAE0D5;
     font-size: 40px;

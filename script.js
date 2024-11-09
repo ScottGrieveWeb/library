@@ -47,6 +47,13 @@ function displayBooks(library) {
 
         bookDiv.appendChild(title);
         bookDiv.appendChild(author);
+
+        const deleteBttn = document.createElement('button')
+        const deleteTxt = document.createTextNode('delete');
+        deleteBttn.appendChild(deleteTxt);
+        deleteBttn.classList.add("delete");
+
+        bookDiv.appendChild(deleteBttn);
         
         libraryDiv.appendChild(bookDiv);
         
