@@ -96,3 +96,13 @@ submitBtn.addEventListener('click', () => {
     titleInput.value = "";
     authInput.value = "";
 });
+
+const deleteBtn = document.getElementsByClassName('delete');
+for (let i = 0 ; i < deleteBtn.length; i++) {
+    deleteBtn[i].addEventListener('click' , deleteFunc, false); 
+ }
+
+ function deleteFunc(){
+    alert("ello");
+ }
+
