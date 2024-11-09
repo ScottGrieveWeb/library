@@ -28,6 +28,15 @@ addBookToLibrary(duneMessiah);
 addBookToLibrary(theFellowship);
 
 const libraryDiv = document.getElementById("library");
+
+// Function to remove current book through delete button
+function removeBook(index){
+        let currentIndex = index;
+        myLibrary.splice(currentIndex, 1);
+
+        refreshLibrary();
+        displayBooks(myLibrary);
+}
         
 
 // Function to loop through library array and display each result
@@ -36,6 +45,7 @@ function displayBooks(library) {
     for (let i = 0; i < library.length; i++) {
         let bookDiv = document.createElement("div");
         bookDiv.classList.add("book");
+        bookDiv.dataset.index = i;
 
         let title = document.createElement("h2");
         let node = document.createTextNode(library[i].title);
@@ -52,6 +62,9 @@ function displayBooks(library) {
         const deleteTxt = document.createTextNode('delete');
         deleteBttn.appendChild(deleteTxt);
         deleteBttn.classList.add("delete");
+        deleteBttn.addEventListener('click' , () => {
+            removeBook(bookDiv.dataset.index);
+         }); 
 
         bookDiv.appendChild(deleteBttn);
         
@@ -96,13 +109,4 @@ submitBtn.addEventListener('click', () => {
     titleInput.value = "";
     authInput.value = "";
 });
-
-const deleteBtn = document.getElementsByClassName('delete');
-for (let i = 0 ; i < deleteBtn.length; i++) {
-    deleteBtn[i].addEventListener('click' , deleteFunc, false); 
- }
-
- function deleteFunc(){
-    alert("ello");
- }
 
