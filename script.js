@@ -2,16 +2,17 @@
 const myLibrary = [];
 
 // Object constructor for the books
-function Book(title, author) {
+function Book(title, author, status) {
     this.title = title,
     this.author = author;
+    this.status = status;
 }
 
-const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien');
-const theFellowship = new Book('The Fellowship of the Ring', 'J.R.R. Tolkien');
-const theLastKingdom = new Book ('The Last Kingdom', 'Bernard Cornwell');
-const dune = new Book('Dune', 'Frank Herbert');
-const duneMessiah = new Book('Dune Messiah', 'Frank Herbert');
+const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 'on');
+const theFellowship = new Book('The Fellowship of the Ring', 'J.R.R. Tolkien', 'on');
+const theLastKingdom = new Book ('The Last Kingdom', 'Bernard Cornwell', 'on');
+const dune = new Book('Dune', 'Frank Herbert', 'on');
+const duneMessiah = new Book('Dune Messiah', 'Frank Herbert', 'off');
 
 function addBookToLibrary(newBook) {
     let book = newBook;
@@ -66,8 +67,6 @@ function displayBooks(library) {
             removeBook(bookDiv.dataset.index);
          }); 
 
-       
-
         const readDiv = document.createElement("div");
         readDiv.classList.add("readDiv");
 
@@ -78,6 +77,13 @@ function displayBooks(library) {
         toggle.type = "checkbox";
         toggle.setAttribute("id", "id"+i);
         toggle.classList.add("id");
+        if (library[i].status === 'on'){
+            toggle.checked = true;
+        }
+        toggle.addEventListener("change", (e) => {
+            this.readStatusValue = e.target.checked ? 'on' : 'off';
+            library[i].status = this.readStatusValue;
+        });
         const label = document.createElement("label");
         label.classList.add("toggle");
         label.setAttribute("for", "id"+i);
