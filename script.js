@@ -67,6 +67,34 @@ function displayBooks(library) {
          }); 
 
         bookDiv.appendChild(deleteBttn);
+
+        const readDiv = document.createElement("div");
+        readDiv.classList.add("readDiv");
+
+        const readBttn = document.createElement("div");
+        readBttn.classList.add("readWrapper");
+
+        const toggle = document.createElement("input");
+        toggle.type = "checkbox";
+        toggle.setAttribute("id", "id"+i);
+        toggle.classList.add("id");
+        const label = document.createElement("label");
+        label.classList.add("toggle");
+        label.setAttribute("for", "id"+i);
+        const span = document.createElement("span");
+        label.appendChild(span);
+        readBttn.appendChild(toggle);
+        readBttn.appendChild(label);
+
+        const readStatus = document.createElement("p");
+        const readText = document.createTextNode("read");
+        readStatus.appendChild(readText);
+
+        readDiv.appendChild(readStatus);
+        readDiv.appendChild(readBttn);
+
+        bookDiv.appendChild(readDiv);
+
         
         libraryDiv.appendChild(bookDiv);
         
