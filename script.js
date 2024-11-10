@@ -66,7 +66,7 @@ function displayBooks(library) {
             removeBook(bookDiv.dataset.index);
          }); 
 
-        bookDiv.appendChild(deleteBttn);
+       
 
         const readDiv = document.createElement("div");
         readDiv.classList.add("readDiv");
@@ -87,11 +87,17 @@ function displayBooks(library) {
         readBttn.appendChild(label);
 
         const readStatus = document.createElement("p");
-        const readText = document.createTextNode("read");
+        const readText = document.createTextNode("read:");
         readStatus.appendChild(readText);
 
-        readDiv.appendChild(readStatus);
-        readDiv.appendChild(readBttn);
+        const readBttnWrapper = document.createElement("div");
+        readBttnWrapper.classList.add("readBttnWrapper");
+
+        readBttnWrapper.appendChild(readStatus);
+        readBttnWrapper.appendChild(readBttn);
+
+        readDiv.appendChild(deleteBttn);
+        readDiv.appendChild(readBttnWrapper);
 
         bookDiv.appendChild(readDiv);
 
