@@ -5,3 +5,5 @@ Features that will be added further in my learning:
 - Scoring/Reviewing
 - Improved UI
 - Edit functionality
+- Tracking/different libraries for different statuses (read/unread)
+- Mobile responsiveness
