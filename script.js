@@ -136,11 +136,19 @@ bookBtn.addEventListener('click', () => {
 
 submitBtn.addEventListener('click', () => {
     const titleInput = document.getElementById("bookTitle");
-    const titleValue = titleInput.value;
     const authInput = document.getElementById("bookAuthor");
-    const authValue = authInput.value;
+    const statusInput = document.getElementById("bookStatus");
+    let statusValue;
+    if (statusInput.checked === true){
+        statusValue = 'on'
+    } else {
+        statusValue = 'off';
+    }
+
+
+
     
-    const userBook = new Book(titleInput.value, authInput.value);
+    const userBook = new Book(titleInput.value, authInput.value, statusValue);
 
     addBookToLibrary(userBook);
     refreshLibrary();
@@ -148,5 +156,6 @@ submitBtn.addEventListener('click', () => {
     
     titleInput.value = "";
     authInput.value = "";
+    statusInput.checked = false;
 });
 
