@@ -8,25 +8,22 @@ function Book(title, author, status) {
     this.status = status;
 }
 
+
+function addBookToLibrary(newBook) {
+   myLibrary.push(newBook);
+}
+
+// Test cases
 const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 'on');
 const theFellowship = new Book('The Fellowship of the Ring', 'J.R.R. Tolkien', 'on');
 const theLastKingdom = new Book ('The Last Kingdom', 'Bernard Cornwell', 'on');
 const dune = new Book('Dune', 'Frank Herbert', 'on');
 const duneMessiah = new Book('Dune Messiah', 'Frank Herbert', 'off');
 
-function addBookToLibrary(newBook) {
-    let book = newBook;
-
-    myLibrary.push(book);
-}
-
-// Test cases
-
 addBookToLibrary(theHobbit);
 addBookToLibrary(theLastKingdom);
 addBookToLibrary(dune);
 addBookToLibrary(duneMessiah);
-addBookToLibrary(theFellowship);
 
 const libraryDiv = document.getElementById("library");
 
