@@ -40,10 +40,12 @@ function removeBook(index){
 
 function displayBooks(library) {
     for (let i = 0; i < library.length; i++) {
+        // creates a new div for the book and assigns a unique index to it
         let bookDiv = document.createElement("div");
         bookDiv.classList.add("book");
         bookDiv.dataset.index = i;
 
+        // creating the Title and Author text, and appending this into the div
         let title = document.createElement("h2");
         let node = document.createTextNode(library[i].title);
         title.appendChild(node);
@@ -55,6 +57,7 @@ function displayBooks(library) {
         bookDiv.appendChild(title);
         bookDiv.appendChild(author);
 
+        // adds a delete button and calls the removeBook function based on the unique index assigned to each book
         const deleteBttn = document.createElement('button')
         const deleteTxt = document.createTextNode('delete');
         deleteBttn.appendChild(deleteTxt);
@@ -63,6 +66,7 @@ function displayBooks(library) {
             removeBook(bookDiv.dataset.index);
          }); 
 
+        // adds a read status toggle
         const readDiv = document.createElement("div");
         readDiv.classList.add("readDiv");
 
@@ -73,9 +77,11 @@ function displayBooks(library) {
         toggle.type = "checkbox";
         toggle.setAttribute("id", "id"+i);
         toggle.classList.add("id");
+        // if statement looks at current status of book in array, and turns on the toggle if status is already read
         if (library[i].status === 'on'){
             toggle.checked = true;
         }
+        // event listener to update current book status depending on change to the toggle
         toggle.addEventListener("change", (e) => {
             this.readStatusValue = e.target.checked ? 'on' : 'off';
             library[i].status = this.readStatusValue;
@@ -103,7 +109,7 @@ function displayBooks(library) {
 
         bookDiv.appendChild(readDiv);
 
-        
+        //adds book into main library div
         libraryDiv.appendChild(bookDiv);
         
     }
@@ -111,7 +117,7 @@ function displayBooks(library) {
 
 displayBooks(myLibrary);
 
-// function clear library, used to display the updated library after user adds a book
+// function clear library, used to display the updated library after user adds/deletes a book
 
 function refreshLibrary() {
     while (libraryDiv.lastElementChild) {
@@ -125,11 +131,11 @@ const bookCreator = document.getElementById('bookCreator');
 const bookBtn = document.getElementById('newBook');
 const submitBtn = document.getElementById('submit');
 
-
+// event listener on 'New Book' button that opens the modal pop-up
 bookBtn.addEventListener('click', () => {
     bookCreator.showModal();
 });
-
+// event listener on tje 'Submit' button that adds the user's new book into library
 submitBtn.addEventListener('click', () => {
     const titleInput = document.getElementById("bookTitle");
     const authInput = document.getElementById("bookAuthor");
@@ -140,9 +146,6 @@ submitBtn.addEventListener('click', () => {
     } else {
         statusValue = 'off';
     }
-
-
-
     
     const userBook = new Book(titleInput.value, authInput.value, statusValue);
 
@@ -150,6 +153,7 @@ submitBtn.addEventListener('click', () => {
     refreshLibrary();
     displayBooks(myLibrary);
     
+    //empties the form ready for next submission
     titleInput.value = "";
     authInput.value = "";
     statusInput.checked = false;
