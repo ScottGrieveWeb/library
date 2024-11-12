@@ -29,8 +29,7 @@ const libraryDiv = document.getElementById("library");
 
 // Function to remove current book through delete button
 function removeBook(index){
-        let currentIndex = index;
-        myLibrary.splice(currentIndex, 1);
+        myLibrary.splice(index, 1);
 
         refreshLibrary();
         displayBooks(myLibrary);
