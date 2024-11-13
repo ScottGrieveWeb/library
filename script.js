@@ -107,6 +107,9 @@ function displayBooks(library) {
         readDiv.appendChild(deleteBttn);
         readDiv.appendChild(readBttnWrapper);
 
+        // review feature
+        const reviewWrapper = "";
+
         bookDiv.appendChild(readDiv);
 
         //adds book into main library div
