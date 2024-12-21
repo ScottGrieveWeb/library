@@ -141,21 +141,26 @@ submitBtn.addEventListener('click', () => {
     const authInput = document.getElementById("bookAuthor");
     const statusInput = document.getElementById("bookStatus");
     let statusValue;
-    if (statusInput.checked === true){
-        statusValue = 'on'
-    } else {
-        statusValue = 'off';
-    }
-    
-    const userBook = new Book(titleInput.value, authInput.value, statusValue);
 
-    addBookToLibrary(userBook);
-    refreshLibrary();
-    displayBooks(myLibrary);
+    if (titleInput.matches(":invalid") === true || authInput.matches(":invalid") === true) {
+        // do nothing
+    } else {
+        if (statusInput.checked === true){
+            statusValue = 'on'
+        } else {
+            statusValue = 'off';
+        }
+        
+        const userBook = new Book(titleInput.value, authInput.value, statusValue);
     
-    //empties the form ready for next submission
-    titleInput.value = "";
-    authInput.value = "";
-    statusInput.checked = false;
+        addBookToLibrary(userBook);
+        refreshLibrary();
+        displayBooks(myLibrary);
+        
+        //empties the form ready for next submission
+        titleInput.value = "";
+        authInput.value = "";
+        statusInput.checked = false;
+    }
 });
 
