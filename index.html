@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" initial-scale=1.0">
+    <link rel="stylesheet" href="609a232ab53e413e38d2.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>Library</title>
+<script defer src="main.js"></script></head>
+<body>
+    <header>
+        <h1>Library</h1>
+    </header>
+    
+    <div id="library">
+
+    </div>
+
+    <button id="newBook">New Book</button>
+
+    <dialog id="bookCreator">
+        <h2>Enter your new Book</h2>
+        <form id="bookForm" method="dialog">
+            <div class="formItem">
+                <label for="bookTitle">Title:</label><br>
+                <input type="text" id="bookTitle" name="bookTitle" required><br>
+            </div>
+            <div class="formItem">
+                <label for="bookAuthor">Author:</label><br>
+                <input type="text" id="bookAuthor" name="bookAuthor" required><br>
+                <div class="readBttnWrapper" id="formReadBttn">
+                    <p>Read:</p>
+                    <div class="readWrapper">
+                        <input type="checkbox" id="bookStatus" class="id">
+                        <label class="toggle" for="bookStatus"><span></span></label>
+                    </div>
+                </div>
+            </div>
+            
+            <input type="submit" id="submit" value="Submit">
+        </form>
+    </dialog>
+</body>
+<script src="30e404c6f9f7f6c4c992.js"></script>
+</html>
