@@ -1,12 +1,9 @@
 import "./style.css";
 import { Book } from "./constructor";
+import { addBookToLibrary } from "./addbook";
 
 // Creating the array that stores books in the library
 const myLibrary = [];
-
-function addBookToLibrary(newBook) {
-   myLibrary.push(newBook);
-}
 
 // Test cases
 const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 'on');
@@ -15,10 +12,10 @@ const theLastKingdom = new Book ('The Last Kingdom', 'Bernard Cornwell', 'on');
 const dune = new Book('Dune', 'Frank Herbert', 'on');
 const duneMessiah = new Book('Dune Messiah', 'Frank Herbert', 'off');
 
-addBookToLibrary(theHobbit);
-addBookToLibrary(theLastKingdom);
-addBookToLibrary(dune);
-addBookToLibrary(duneMessiah);
+addBookToLibrary(theHobbit, myLibrary);
+addBookToLibrary(theLastKingdom, myLibrary);
+addBookToLibrary(dune, myLibrary);
+addBookToLibrary(duneMessiah, myLibrary);
 
 const libraryDiv = document.getElementById("library");
 
@@ -148,10 +145,11 @@ submitBtn.addEventListener('click', () => {
         
         const userBook = new Book(titleInput.value, authInput.value, statusValue);
     
-        addBookToLibrary(userBook);
+        addBookToLibrary(userBook, myLibrary);
         refreshLibrary();
         displayBooks(myLibrary);
         
+        bookCreator.close();
         //empties the form ready for next submission
         titleInput.value = "";
         authInput.value = "";
