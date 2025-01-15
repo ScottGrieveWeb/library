@@ -1,30 +1,16 @@
 import "./style.css";
 import { Book } from "./constructor";
+import { addBookToLibrary } from "./addbook";
 
 // Creating the array that stores books in the library
-const myLibrary = [];
-
-function addBookToLibrary(newBook) {
-   myLibrary.push(newBook);
-}
-
-// Test cases
-const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 'on');
-const theFellowship = new Book('The Fellowship of the Ring', 'J.R.R. Tolkien', 'on');
-const theLastKingdom = new Book ('The Last Kingdom', 'Bernard Cornwell', 'on');
-const dune = new Book('Dune', 'Frank Herbert', 'on');
-const duneMessiah = new Book('Dune Messiah', 'Frank Herbert', 'off');
-
-addBookToLibrary(theHobbit);
-addBookToLibrary(theLastKingdom);
-addBookToLibrary(dune);
-addBookToLibrary(duneMessiah);
+let myLibrary = [];
 
 const libraryDiv = document.getElementById("library");
 
 // Function to remove current book through delete button
 function removeBook(index){
         myLibrary.splice(index, 1);
+        localStorage.setItem("library", JSON.stringify(myLibrary));
 
         refreshLibrary();
         displayBooks(myLibrary);
@@ -148,10 +134,12 @@ submitBtn.addEventListener('click', () => {
         
         const userBook = new Book(titleInput.value, authInput.value, statusValue);
     
-        addBookToLibrary(userBook);
+        addBookToLibrary(userBook, myLibrary);
         refreshLibrary();
+        localStorage.setItem("library", JSON.stringify(myLibrary));
         displayBooks(myLibrary);
         
+        bookCreator.close();
         //empties the form ready for next submission
         titleInput.value = "";
         authInput.value = "";
@@ -159,3 +147,13 @@ submitBtn.addEventListener('click', () => {
     }
 });
 
+window.onload = () => {
+    if (localStorage.getItem("library") === null) {
+      //if there's nothing in storage, this sets up a new item and assigns the projectList array
+      localStorage.setItem("library", JSON.stringify(myLibrary));
+    } else {
+      //if there's something in storage, this sets the projectList array to the array in storage
+      myLibrary = JSON.parse(localStorage.getItem("library"));
+    }
+    displayBooks(myLibrary);
+  };
