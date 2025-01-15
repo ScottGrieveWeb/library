@@ -5,25 +5,13 @@ import { addBookToLibrary } from "./addbook";
 // Creating the array that stores books in the library
 let myLibrary = [];
 
-// Test cases
-const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 'on');
-const theFellowship = new Book('The Fellowship of the Ring', 'J.R.R. Tolkien', 'on');
-const theLastKingdom = new Book ('The Last Kingdom', 'Bernard Cornwell', 'on');
-const dune = new Book('Dune', 'Frank Herbert', 'on');
-const duneMessiah = new Book('Dune Messiah', 'Frank Herbert', 'off');
-
-// addBookToLibrary(theHobbit, myLibrary);
-// addBookToLibrary(theLastKingdom, myLibrary);
-// addBookToLibrary(dune, myLibrary);
-// addBookToLibrary(duneMessiah, myLibrary);
-
 const libraryDiv = document.getElementById("library");
 
 // Function to remove current book through delete button
 function removeBook(index){
         myLibrary.splice(index, 1);
         localStorage.setItem("library", JSON.stringify(myLibrary));
-        
+
         refreshLibrary();
         displayBooks(myLibrary);
 }
